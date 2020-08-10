@@ -1,0 +1,22 @@
+﻿@model Product
+
+@{
+    ViewBag.Title = "Cadastro de Produto";
+    Layout = "_Layout";
+}
+
+<h2>Cadastro de Produto</h2>
+
+<form method="post" asp-action="Create">
+    <div class="text-danger" asp-validation-summary="All"></div>
+
+    <div class="row">
+        <div class="col-3">
+            <input type="hidden" asp-for="Id"/>
+            <label>Nome do Produto</label>
+            <input asp-for="Name" class="form-control"/>
+        </div>
+    </div>
+
+    <button class="mt-4 btn btn-primary">Salvar</button>
+</form>

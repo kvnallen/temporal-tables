@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<TemporalTableCrud.Models.Product>
 
 
-<h1>Lista de produtos</h1>
+<h1>Lista de produtos <a asp-action="Create">(Novo)</a></h1>
 <form asp-action="Index" asp-controller="Products" method="get">
 
     <div class="row mb-4">
@@ -25,6 +25,7 @@
                 <tr>
                     <th>Id</th>
                     <th>Nome</th>
+                    <th>#</th>
                 </tr>
             </thead>
             <tbody>
@@ -34,6 +35,7 @@
                     <tr>
                         <td>@p.Id</td>
                         <td>@p.Name</td>
+                        <td><a asp-action="Edit" asp-route-productId="@p.Id">Editar</a></td>
                     </tr>
                 }
             </tbody>
