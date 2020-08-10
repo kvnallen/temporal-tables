@@ -21,7 +21,7 @@ namespace TemporalTableCrud.Controllers
         {
             if (historyDateTime.HasValue)
             {
-                var sql = "SELECT * FROM Products FOR SYSTEM_TIME FROM {0} TO {1}";
+                var sql = "SELECT * FROM Products FOR SYSTEM_TIME FROM {0} TO {1} ORDER BY Id, ValidFrom ";
                 var products = context.Products
                     .FromSqlRaw(sql, historyDateTime.Value.Date, historyDateTime.Value.Date.AddDays(1).AddTicks(-1))
                     .AsNoTracking()
