@@ -1,0 +1,42 @@
+﻿@model IEnumerable<TemporalTableCrud.Models.Product>
+
+
+<h1>Lista de produtos</h1>
+<form asp-action="Index" asp-controller="Products" method="get">
+
+    <div class="row mb-4">
+        <div class="col-md-3">
+            <label>Data do histórico</label>
+            <input class="form-control" type="date" name="historyDateTime" />
+        </div>
+        <div class="col-1 mt-4">
+            <button class="btn btn-primary"  type="submit">Pesquisar</button>
+        </div>
+    </div>
+</form>
+
+
+<div class="row">
+    <div class="col-12">
+
+        <table class="table table-striped">
+
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nome</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var p in Model)
+                {
+
+                    <tr>
+                        <td>@p.Id</td>
+                        <td>@p.Name</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
